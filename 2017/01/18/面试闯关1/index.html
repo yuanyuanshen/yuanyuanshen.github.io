@@ -1,0 +1,951 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html css js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="面试闯关1 在面试过程中，总会被问到一些你用到过、但是记不清一些零碎的知识，现在做一下总结。
+第一部分：HTML+CSS1.常用那几种浏览器测试？有哪些内核(Layout Engine)?
+主要内核：Trident，Gecko，Presto，Webkit。
+
+IE（Trident）、Firefox（Gecko）、Opera（Presto）、Chrome（Webkit）
+
+
+2.box-sizing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试闯关1">
+<meta property="og:url" content="http://yoursite.com/2017/01/18/面试闯关1/index.html">
+<meta property="og:site_name" content="掰玉米基地">
+<meta property="og:description" content="面试闯关1 在面试过程中，总会被问到一些你用到过、但是记不清一些零碎的知识，现在做一下总结。
+第一部分：HTML+CSS1.常用那几种浏览器测试？有哪些内核(Layout Engine)?
+主要内核：Trident，Gecko，Presto，Webkit。
+
+IE（Trident）、Firefox（Gecko）、Opera（Presto）、Chrome（Webkit）
+
+
+2.box-sizing">
+<meta property="og:updated_time" content="2017-01-18T08:00:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试闯关1">
+<meta name="twitter:description" content="面试闯关1 在面试过程中，总会被问到一些你用到过、但是记不清一些零碎的知识，现在做一下总结。
+第一部分：HTML+CSS1.常用那几种浏览器测试？有哪些内核(Layout Engine)?
+主要内核：Trident，Gecko，Presto，Webkit。
+
+IE（Trident）、Firefox（Gecko）、Opera（Presto）、Chrome（Webkit）
+
+
+2.box-sizing">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/18/面试闯关1/"/>
+
+
+
+
+
+  <title> 面试闯关1 | 掰玉米基地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?953f437cb245de3999f11074aef9fc46";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">掰玉米基地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">和我一起掰玉米~啦啦啦</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/18/面试闯关1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YuanYuan Shen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="掰玉米基地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="掰玉米基地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面试闯关1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-18T15:50:50+08:00">
+                2017-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学富0-5车/" itemprop="url" rel="index">
+                    <span itemprop="name">学富0.5车</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/01/18/面试闯关1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/18/面试闯关1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/18/面试闯关1/" class="leancloud_visitors" data-flag-title="面试闯关1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="面试闯关1"><a href="#面试闯关1" class="headerlink" title="面试闯关1"></a>面试闯关1</h3><p> 在面试过程中，总会被问到一些你用到过、但是记不清一些零碎的知识，现在做一下总结。</p>
+<h3 id="第一部分：HTML-CSS"><a href="#第一部分：HTML-CSS" class="headerlink" title="第一部分：HTML+CSS"></a>第一部分：HTML+CSS</h3><h4 id="1-常用那几种浏览器测试？有哪些内核-Layout-Engine"><a href="#1-常用那几种浏览器测试？有哪些内核-Layout-Engine" class="headerlink" title="1.常用那几种浏览器测试？有哪些内核(Layout Engine)?"></a>1.常用那几种浏览器测试？有哪些内核(Layout Engine)?</h4><ul>
+<li><p>主要内核：Trident，Gecko，Presto，Webkit。</p>
+</li>
+<li><p>IE（Trident）、Firefox（Gecko）、Opera（Presto）、Chrome（Webkit）</p>
+</li>
+</ul>
+<h4 id="2-box-sizing常用的属性有哪些？分别有什么作用？"><a href="#2-box-sizing常用的属性有哪些？分别有什么作用？" class="headerlink" title="2.box-sizing常用的属性有哪些？分别有什么作用？"></a>2.box-sizing常用的属性有哪些？分别有什么作用？</h4><ul>
+<li>content-box：在宽度和高度之外绘制元素的内边距和边框。</li>
+<li>border-box：为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。</li>
+<li>inherit：从父元素继承 box-sizing 属性的值。</li>
+</ul>
+<h4 id="3-Doctype作用？标准模式与兼容模式各有什么区别"><a href="#3-Doctype作用？标准模式与兼容模式各有什么区别" class="headerlink" title="3.Doctype作用？标准模式与兼容模式各有什么区别?"></a>3.Doctype作用？标准模式与兼容模式各有什么区别?</h4><ul>
+<li>Doctype作用：告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。</li>
+<li>区别：标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。</li>
+</ul>
+<h4 id="4-页面导入样式时，使用link和-import、行内、嵌入中有什么区别？"><a href="#4-页面导入样式时，使用link和-import、行内、嵌入中有什么区别？" class="headerlink" title="4.页面导入样式时，使用link和@import、行内、嵌入中有什么区别？"></a>4.页面导入样式时，使用link和@import、行内、嵌入中有什么区别？</h4><ul>
+<li>行内：失去的css的优势，但是优先级最高</li>
+<li>嵌入：style方式，修改起来复杂</li>
+<li>@inportant：页面全部加载完成才导入css，在页面非常大的情况下会到时页面加载完成闪一下出现样式</li>
+<li>link：在页面加载之前加载css文件</li>
+</ul>
+<a id="more"></a>
+<h4 id="5-介绍一下你对浏览器内核的理解？"><a href="#5-介绍一下你对浏览器内核的理解？" class="headerlink" title="5.介绍一下你对浏览器内核的理解？"></a>5.介绍一下你对浏览器内核的理解？</h4><p>主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和js引擎。</p>
+<p>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。<br>浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。</p>
+<p>JS引擎则：解析和执行javascript来实现网页的动态效果。</p>
+<p>最开始渲染引擎和JS引擎并没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<h4 id="6-html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？"><a href="#6-html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？" class="headerlink" title="6.html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？"></a>6.html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</h4><p> HTML5现在已经不是SGML的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
+<ul>
+<li><p>拖拽释放(Drag and drop) API<br>语义化更好的内容标签（header,nav,footer,aside,article,section）<br>音频、视频API(audio,video)<br>画布(Canvas) API<br>地理(Geolocation) API<br>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；<br>sessionStorage 的数据在浏览器关闭后自动删除</p>
+<p>表单控件，calendar、date、time、email、url、search<br>新的技术webworker, websocket, Geolocation</p>
+</li>
+<li><p>移除的元素</p>
+</li>
+</ul>
+<p>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</p>
+<p>对可用性产生负面影响的元素：frame，frameset，noframes；</p>
+<p>支持HTML5新标签：</p>
+<ul>
+<li><p>IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>可以利用这一特性让这些浏览器支持HTML5新标签，</p>
+<p>浏览器支持新标签后，还需要添加标签默认的样式：</p>
+</li>
+<li><p>当然最好的方式是直接使用成熟的框架、使用最多的是html5shim框架</p>
+ <!--[if lt IE 9]>
+ <script> src="http://html5shim.googlecode.com/svn/trunk/html5.js"</script>
+ <![endif]-->
+</li>
+</ul>
+<h4 id="7-简述一下你对HTML语义化的理解？"><a href="#7-简述一下你对HTML语义化的理解？" class="headerlink" title="7.简述一下你对HTML语义化的理解？"></a>7.简述一下你对HTML语义化的理解？</h4><ul>
+<li>HTML语义化：根据内容的结构化（内容语义化），选择合适的标签（代码语义化）便于开发者阅读和写出更优雅的代码的同时让浏览器的爬虫和机器很好地解析。</li>
+</ul>
+<h4 id="8-清除浮动有哪些方式？比较好的方式是哪一种？"><a href="#8-清除浮动有哪些方式？比较好的方式是哪一种？" class="headerlink" title="8.清除浮动有哪些方式？比较好的方式是哪一种？"></a>8.清除浮动有哪些方式？比较好的方式是哪一种？</h4><ul>
+<li><a href="http://www.iyunlu.com/view/css-xhtml/55.html" target="_blank" rel="external">关闭浮动&amp;BFC</a></li>
+<li><a href="https://segmentfault.com/q/1010000005947736?_ea=960916" target="_blank" rel="external">使用after清除浮动的好处原理</a></li>
+<li><a href="http://runjs.cn/code/33bfoyag" target="_blank" rel="external">RunJS清除浮动代码</a></li>
+</ul>
+<h3 id="第二部分：JS"><a href="#第二部分：JS" class="headerlink" title="第二部分：JS"></a>第二部分：JS</h3><h4 id="1-js的基本数据类型？"><a href="#1-js的基本数据类型？" class="headerlink" title="1.js的基本数据类型？"></a>1.js的基本数据类型？</h4><p>null 、undefined、boolean、string、number</p>
+<h4 id="2-js有哪些内置对象？"><a href="#2-js有哪些内置对象？" class="headerlink" title="2.js有哪些内置对象？"></a>2.js有哪些内置对象？</h4><p>数据封装类对象：Object、Array、Boolean、Number 和 String</p>
+<p>其他对象：Function、Arguments、Math、Date、RegExp、Error</p>
+<h4 id="3-js中的this、call和apply"><a href="#3-js中的this、call和apply" class="headerlink" title="3.js中的this、call和apply"></a>3.js中的this、call和apply</h4><ul>
+<li>纯函数调用，this指向全局对象global</li>
+<li>作为对象方法的调用：指向调用他的对象</li>
+<li>作为构造函数调用，指向新对象</li>
+</ul>
+<p>自己做的总结：<a href="https://yuanyuanshen.github.io/2016/12/08/%E8%AF%B4%E8%AF%B4javascript%E7%9A%84this%E3%80%81call%E5%92%8Capply/" target="_blank" rel="external">链接</a></p>
+<h4 id="4-eval是做什么的？"><a href="#4-eval是做什么的？" class="headerlink" title="4.eval是做什么的？"></a>4.eval是做什么的？</h4><ul>
+<li>把对应的字符串解析成JS代码并运行。 alert(eval(‘2’+’2’)) //alert(4)</li>
+</ul>
+<p>应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。</p>
+<ul>
+<li>JSON字符串转换为JSON对象的时候可以用eval，var obj =eval(‘(‘+ str +’)’)。</li>
+</ul>
+<h4 id="5-null和undefined的区别？"><a href="#5-null和undefined的区别？" class="headerlink" title="5.null和undefined的区别？"></a>5.null和undefined的区别？</h4><p>null是一个表示”无”的对象，转为数值时为0；undefined是一个表示”无”的原始值，转为数值时为NaN。</p>
+<p>undefined：</p>
+<p>（1）变量被声明了，但没有赋值时，就等于undefined。</p>
+<p>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。</p>
+<p>（3）对象没有赋值的属性，该属性的值为undefined。</p>
+<p>（4）函数没有返回值时，默认返回undefined。</p>
+<p>null：</p>
+<p>（1） 作为函数的参数，表示该函数的参数不是对象。</p>
+<p>（2） 作为对象原型链的终点。</p>
+<h4 id="6-new操作符具体干了什么呢"><a href="#6-new操作符具体干了什么呢" class="headerlink" title="6.new操作符具体干了什么呢?"></a>6.new操作符具体干了什么呢?</h4><p>（1）创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。</p>
+<p>（2）属性和方法被加入到 this 引用的对象中。</p>
+<p>（3）新创建的对象由 this 所引用，并且最后隐式的返回 this 。</p>
+<h4 id="7-JSON-的了解？"><a href="#7-JSON-的了解？" class="headerlink" title="7.JSON 的了解？"></a>7.JSON 的了解？</h4><p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小。</p>
+<p>格式：采用键值对，例如：{‘age’:’12’, ‘name’:’back’}</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://zhuanlan.zhihu.com/p/22800583?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">面试总结</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html-css-js/" rel="tag"># html css js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/14/vue概念性知识的理解/" rel="next" title="vue概念性知识的理解">
+                <i class="fa fa-chevron-left"></i> vue概念性知识的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/23/你懂JSON么？/" rel="prev" title="你懂JSON么？">
+                你懂JSON么？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/18/面试闯关1/"
+           data-title="面试闯关1" data-url="http://yoursite.com/2017/01/18/面试闯关1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png"
+               alt="YuanYuan Shen" />
+          <p class="site-author-name" itemprop="name">YuanYuan Shen</p>
+          <p class="site-description motion-element" itemprop="description">圈圈的学习园地</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yuanyuanshen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2716069255/home?wvr=5#_loginLayer_1479977110034" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yyshen_11" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2716069255" target="_blank" title="博客">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#面试闯关1"><span class="nav-number">1.</span> <span class="nav-text">面试闯关1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分：HTML-CSS"><span class="nav-number">2.</span> <span class="nav-text">第一部分：HTML+CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-常用那几种浏览器测试？有哪些内核-Layout-Engine"><span class="nav-number">2.1.</span> <span class="nav-text">1.常用那几种浏览器测试？有哪些内核(Layout Engine)?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-box-sizing常用的属性有哪些？分别有什么作用？"><span class="nav-number">2.2.</span> <span class="nav-text">2.box-sizing常用的属性有哪些？分别有什么作用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Doctype作用？标准模式与兼容模式各有什么区别"><span class="nav-number">2.3.</span> <span class="nav-text">3.Doctype作用？标准模式与兼容模式各有什么区别?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-页面导入样式时，使用link和-import、行内、嵌入中有什么区别？"><span class="nav-number">2.4.</span> <span class="nav-text">4.页面导入样式时，使用link和@import、行内、嵌入中有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-介绍一下你对浏览器内核的理解？"><span class="nav-number">2.5.</span> <span class="nav-text">5.介绍一下你对浏览器内核的理解？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？"><span class="nav-number">2.6.</span> <span class="nav-text">6.html5有哪些新特性？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-简述一下你对HTML语义化的理解？"><span class="nav-number">2.7.</span> <span class="nav-text">7.简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-清除浮动有哪些方式？比较好的方式是哪一种？"><span class="nav-number">2.8.</span> <span class="nav-text">8.清除浮动有哪些方式？比较好的方式是哪一种？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分：JS"><span class="nav-number">3.</span> <span class="nav-text">第二部分：JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-js的基本数据类型？"><span class="nav-number">3.1.</span> <span class="nav-text">1.js的基本数据类型？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-js有哪些内置对象？"><span class="nav-number">3.2.</span> <span class="nav-text">2.js有哪些内置对象？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-js中的this、call和apply"><span class="nav-number">3.3.</span> <span class="nav-text">3.js中的this、call和apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-eval是做什么的？"><span class="nav-number">3.4.</span> <span class="nav-text">4.eval是做什么的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-null和undefined的区别？"><span class="nav-number">3.5.</span> <span class="nav-text">5.null和undefined的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-new操作符具体干了什么呢"><span class="nav-number">3.6.</span> <span class="nav-text">6.new操作符具体干了什么呢?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-JSON-的了解？"><span class="nav-number">3.7.</span> <span class="nav-text">7.JSON 的了解？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanYuan Shen</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuanyuanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("606F9ujGSuRPnWiygqxbw7J6-gzGzoHsz", "DnRKbtHwF3uJxjTO8bf2DcVi");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

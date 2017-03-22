@@ -1,0 +1,894 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="npm,webpack,vue," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="vue的理解最近忙于写基于element框架的项目，对于vue也是直接上手，使用过程中跌跌撞撞，但是总归有收获。记录下自己学习心得。坚持写博客~加油，时间长不更新博客，都怕自己不会了~~
+认识vue是渐进式的框架，只关注view视图，vue是数据驱动，所以不要操作DOM
+vue除了包含主要的vue.js之外，还有生态库如vue-router、vue-resource等。一些相关库可以在官网找到
+v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue概念性知识的理解">
+<meta property="og:url" content="http://yoursite.com/2017/01/14/vue概念性知识的理解/index.html">
+<meta property="og:site_name" content="掰玉米基地">
+<meta property="og:description" content="vue的理解最近忙于写基于element框架的项目，对于vue也是直接上手，使用过程中跌跌撞撞，但是总归有收获。记录下自己学习心得。坚持写博客~加油，时间长不更新博客，都怕自己不会了~~
+认识vue是渐进式的框架，只关注view视图，vue是数据驱动，所以不要操作DOM
+vue除了包含主要的vue.js之外，还有生态库如vue-router、vue-resource等。一些相关库可以在官网找到
+v">
+<meta property="og:image" content="http://sandbox.runjs.cn/uploads/rs/410/cyvsaybm/mtu1da7r.png">
+<meta property="og:updated_time" content="2017-01-14T07:07:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue概念性知识的理解">
+<meta name="twitter:description" content="vue的理解最近忙于写基于element框架的项目，对于vue也是直接上手，使用过程中跌跌撞撞，但是总归有收获。记录下自己学习心得。坚持写博客~加油，时间长不更新博客，都怕自己不会了~~
+认识vue是渐进式的框架，只关注view视图，vue是数据驱动，所以不要操作DOM
+vue除了包含主要的vue.js之外，还有生态库如vue-router、vue-resource等。一些相关库可以在官网找到
+v">
+<meta name="twitter:image" content="http://sandbox.runjs.cn/uploads/rs/410/cyvsaybm/mtu1da7r.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/14/vue概念性知识的理解/"/>
+
+
+
+
+
+  <title> vue概念性知识的理解 | 掰玉米基地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?953f437cb245de3999f11074aef9fc46";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">掰玉米基地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">和我一起掰玉米~啦啦啦</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/14/vue概念性知识的理解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YuanYuan Shen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="掰玉米基地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="掰玉米基地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue概念性知识的理解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-14T14:22:02+08:00">
+                2017-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue学习篇/" itemprop="url" rel="index">
+                    <span itemprop="name">vue学习篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/01/14/vue概念性知识的理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/14/vue概念性知识的理解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/14/vue概念性知识的理解/" class="leancloud_visitors" data-flag-title="vue概念性知识的理解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="vue的理解"><a href="#vue的理解" class="headerlink" title="vue的理解"></a>vue的理解</h2><p>最近忙于写基于element框架的项目，对于vue也是直接上手，使用过程中跌跌撞撞，但是总归有收获。<br>记录下自己学习心得。坚持写博客~加油，时间长不更新博客，都怕自己不会了~~</p>
+<h3 id="认识vue"><a href="#认识vue" class="headerlink" title="认识vue"></a>认识vue</h3><p>是渐进式的框架，只关注view视图，vue是数据驱动，所以不要操作DOM</p>
+<p>vue除了包含主要的vue.js之外，还有生态库如vue-router、vue-resource等。一些相关库可以在官网找到</p>
+<h3 id="vue的两个核心"><a href="#vue的两个核心" class="headerlink" title="vue的两个核心"></a>vue的两个核心</h3><h4 id="响应的数据绑定"><a href="#响应的数据绑定" class="headerlink" title="响应的数据绑定"></a>响应的数据绑定</h4><p>当数据发生改变-&gt;视图会自动更新</p>
+<p>利用Object.definedProperty中setter/getter代理数据，监控数据的操作</p>
+<h4 id="组合的视图组件"><a href="#组合的视图组件" class="headerlink" title="组合的视图组件"></a>组合的视图组件</h4><p>ui页面映射为组件数</p>
+<p>划分组件可维护、可重用、可测试</p>
+<p><img src="http://sandbox.runjs.cn/uploads/rs/410/cyvsaybm/mtu1da7r.png" alt="组件"></p>
+<a id="more"></a>
+<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h3><p>js运行的很快，但是大量的操作和更新DOM是很慢的，需要在数据更新之后重新渲染页面，这样就造成在没有改变数据的<br>地方也会重新的渲染DOM，造成资源浪费。</p>
+<p>虚拟DOM：在内存中生成与真实DOM对应的对象，就是虚拟DOM</p>
+<p>在数据改变是，通过对比old虚拟DOM和new虚拟DOM，只关注修改的部分，对真实的DOM节点只更新修改的部分。</p>
+<h3 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h3><p>M：Model数据模型<br>V：view视图模板<br>V-M：视图模型，实现M和V的联系 实现双向绑定，M和V是各自独立的</p>
+<h3 id="vue代理data数据"><a href="#vue代理data数据" class="headerlink" title="vue代理data数据"></a>vue代理data数据</h3><p>每一个vue实例都会代理data对象里所有的属性，这些被代理的属性是响应式的，但是新添加的属性不具备<br>响应功能，改变后不会更新视图。以下是在codePen上写的在线例子，先添加的属性，改变后不会更新视图</p>
+<p><a href="http://codepen.io/shenyuanyuan/pen/dNXqEX/" target="_blank" rel="external">http://codepen.io/shenyuanyuan/pen/dNXqEX/</a></p>
+<h3 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h3><p>vue的双向数据绑定，就是一种声明式的渲染，你只需要按照规定，就可以显现绑定，而不需要关注是怎么实现的</p>
+<h4 id="声明式渲染-1"><a href="#声明式渲染-1" class="headerlink" title="声明式渲染"></a>声明式渲染</h4><p>直接调用方法，而不关注怎么实现</p>
+<h4 id="命令式渲染"><a href="#命令式渲染" class="headerlink" title="命令式渲染"></a>命令式渲染</h4><p>一步一步的执行，需要关注怎么实现</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h4 id="html模板"><a href="#html模板" class="headerlink" title="html模板"></a>html模板</h4><ol>
+<li><p>基于DOM模板，内容是一些html的标签</p>
+</li>
+<li><p>插值</p>
+</li>
+</ol>
+<ul>
+<li>文本模板 </li>
+<li>使用v-html来解析成htmlDOM</li>
+<li>可以写表达式，但不能写语句</li>
+</ul>
+<p>模板中尽量少的插入逻辑，如果需要逻辑计算，可以使用属性计算</p>
+<h4 id="template字符串模板"><a href="#template字符串模板" class="headerlink" title="template字符串模板"></a>template字符串模板</h4><p>vue实例下有对应的属性template,模板会替换挂载元素，两者不能共存，template下只能有一根元素</p>
+<h4 id="模板render函数"><a href="#模板render函数" class="headerlink" title="模板render函数"></a>模板render函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">render(createElement)&#123;</div><div class="line">    <span class="comment">//createElement函数的三个参数：标签名 数据对象 子元素</span></div><div class="line">    <span class="keyword">return</span> createElement(</div><div class="line">        <span class="string">"ul"</span>,<span class="comment">//标签名 数据对象 子元素</span></div><div class="line">        &#123;</div><div class="line">            <span class="attr">class</span> : &#123;<span class="comment">//绑定class</span></div><div class="line">                bg : <span class="literal">true</span>,<span class="comment">//bg这个class的样式会被渲染</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">style</span> : &#123;<span class="comment">//绑定样式</span></div><div class="line">                fontSize : <span class="string">"20px"</span>,</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">attrs</span> : &#123;<span class="comment">//添加自定义属性</span></div><div class="line">                abc : <span class="string">"haha"</span>,</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">domProps</span> : &#123;<span class="comment">//标签的属性</span></div><div class="line">                innerHTML : <span class="string">"我是html"</span>,</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        [</div><div class="line">            createElement(<span class="string">"li"</span>,<span class="number">1</span>),</div><div class="line">            createElement(<span class="string">"li"</span>,<span class="number">1</span>),</div><div class="line">            createElement(<span class="string">"li"</span>,<span class="number">1</span>)</div><div class="line">        ]</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="vue构建方式"><a href="#vue构建方式" class="headerlink" title="vue构建方式"></a>vue构建方式</h3><p>开始觉得独立构建和运行时构建很难理解，但是当你发现你看完模板编译这块，构建方式就很容易理解了</p>
+<h4 id="独立构建"><a href="#独立构建" class="headerlink" title="独立构建"></a>独立构建</h4><p>独立构建包含模板编译器并支持 template 选项。 它也依赖于浏览器的接口的存在，所以你不能使用它来为服务器端渲染。</p>
+<h4 id="运行时构建"><a href="#运行时构建" class="headerlink" title="运行时构建"></a>运行时构建</h4><p>运行时构建不包含模板编译器，因此不支持 template 选项，只能用 render 选项，但即使使用运行时构建，在单文件组件中也依然可以写模板，因为单文件组件的模板会在构建时预编译为 render 函数。</p>
+<p>npm导出的包默认是运行时构建，如果要改为独立构建，webpack需配置如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">  alias: &#123;</div><div class="line">    &apos;vue$&apos;: &apos;vue/dist/vue.common.js&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/vue-router带你出坑/" rel="next" title="vue-router带你出坑">
+                <i class="fa fa-chevron-left"></i> vue-router带你出坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/18/面试闯关1/" rel="prev" title="面试闯关1">
+                面试闯关1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/14/vue概念性知识的理解/"
+           data-title="vue概念性知识的理解" data-url="http://yoursite.com/2017/01/14/vue概念性知识的理解/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png"
+               alt="YuanYuan Shen" />
+          <p class="site-author-name" itemprop="name">YuanYuan Shen</p>
+          <p class="site-description motion-element" itemprop="description">圈圈的学习园地</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yuanyuanshen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2716069255/home?wvr=5#_loginLayer_1479977110034" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yyshen_11" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2716069255" target="_blank" title="博客">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue的理解"><span class="nav-number">1.</span> <span class="nav-text">vue的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#认识vue"><span class="nav-number">1.1.</span> <span class="nav-text">认识vue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的两个核心"><span class="nav-number">1.2.</span> <span class="nav-text">vue的两个核心</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#响应的数据绑定"><span class="nav-number">1.2.1.</span> <span class="nav-text">响应的数据绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合的视图组件"><span class="nav-number">1.2.2.</span> <span class="nav-text">组合的视图组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM模式"><span class="nav-number">1.4.</span> <span class="nav-text">MVVM模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue代理data数据"><span class="nav-number">1.5.</span> <span class="nav-text">vue代理data数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明式渲染"><span class="nav-number">1.6.</span> <span class="nav-text">声明式渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明式渲染-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">声明式渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令式渲染"><span class="nav-number">1.6.2.</span> <span class="nav-text">命令式渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.7.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html模板"><span class="nav-number">1.7.1.</span> <span class="nav-text">html模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#template字符串模板"><span class="nav-number">1.7.2.</span> <span class="nav-text">template字符串模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板render函数"><span class="nav-number">1.7.3.</span> <span class="nav-text">模板render函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue构建方式"><span class="nav-number">1.8.</span> <span class="nav-text">vue构建方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#独立构建"><span class="nav-number">1.8.1.</span> <span class="nav-text">独立构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时构建"><span class="nav-number">1.8.2.</span> <span class="nav-text">运行时构建</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanYuan Shen</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuanyuanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("606F9ujGSuRPnWiygqxbw7J6-gzGzoHsz", "DnRKbtHwF3uJxjTO8bf2DcVi");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

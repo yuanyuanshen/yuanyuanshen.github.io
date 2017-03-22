@@ -1,0 +1,889 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="npm,webpack,vue," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="项目创建结构项目目录1234567891011# 项目名称 vue-simple-demo# 目录如下vue-simple-demo└─webpack.config.js└─package.json└─src  └─main.js  └─index.html└─node_modules└─dist  └─bundle.js
+项目文件项目目录下新建package.json12$ cd #当前目录$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/vue学习笔记/index.html">
+<meta property="og:site_name" content="掰玉米基地">
+<meta property="og:description" content="项目创建结构项目目录1234567891011# 项目名称 vue-simple-demo# 目录如下vue-simple-demo└─webpack.config.js└─package.json└─src  └─main.js  └─index.html└─node_modules└─dist  └─bundle.js
+项目文件项目目录下新建package.json12$ cd #当前目录$">
+<meta property="og:updated_time" content="2016-12-13T01:53:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue学习笔记">
+<meta name="twitter:description" content="项目创建结构项目目录1234567891011# 项目名称 vue-simple-demo# 目录如下vue-simple-demo└─webpack.config.js└─package.json└─src  └─main.js  └─index.html└─node_modules└─dist  └─bundle.js
+项目文件项目目录下新建package.json12$ cd #当前目录$">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/22/vue学习笔记/"/>
+
+
+
+
+
+  <title> vue学习笔记 | 掰玉米基地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?953f437cb245de3999f11074aef9fc46";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">掰玉米基地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">和我一起掰玉米~啦啦啦</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/vue学习笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YuanYuan Shen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="掰玉米基地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="掰玉米基地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vue学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-22T20:11:32+08:00">
+                2016-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue学习篇/" itemprop="url" rel="index">
+                    <span itemprop="name">vue学习篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/22/vue学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/22/vue学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/22/vue学习笔记/" class="leancloud_visitors" data-flag-title="vue学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="项目创建结构"><a href="#项目创建结构" class="headerlink" title="项目创建结构"></a>项目创建结构</h4><h5 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 项目名称 vue-simple-demo</span></div><div class="line"><span class="comment"># 目录如下</span></div><div class="line">vue-simple-demo</div><div class="line">└─webpack.config.js</div><div class="line">└─package.json</div><div class="line">└─src</div><div class="line">  └─main.js</div><div class="line">  └─index.html</div><div class="line">└─node_modules</div><div class="line">└─dist</div><div class="line">  └─bundle.js</div></pre></td></tr></table></figure>
+<h5 id="项目文件"><a href="#项目文件" class="headerlink" title="项目文件"></a>项目文件</h5><h6 id="项目目录下新建package-json"><a href="#项目目录下新建package-json" class="headerlink" title="项目目录下新建package.json"></a>项目目录下新建package.json</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> <span class="comment">#当前目录</span></div><div class="line">$ npm init <span class="comment">#创建package.json</span></div></pre></td></tr></table></figure>
+<h6 id="src目录下新建index-html"><a href="#src目录下新建index-html" class="headerlink" title="src目录下新建index.html"></a>src目录下新建index.html</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 用于最终显示效果的html</span></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Vue Demo&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">'../dist/bundle.js'</span>&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h6 id="sec目录下新建main-js"><a href="#sec目录下新建main-js" class="headerlink" title="sec目录下新建main.js"></a>sec目录下新建main.js</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># main.js</span></div><div class="line">import Vue from <span class="string">'vue'</span></div><div class="line">new Vue(&#123;</div><div class="line">    el: <span class="string">'#div1'</span>,</div><div class="line">    data: &#123;</div><div class="line">        message: <span class="string">'vue demo'</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="安装依赖文件"><a href="#安装依赖文件" class="headerlink" title="安装依赖文件"></a>安装依赖文件</h5><h6 id="安装webpack，webpack-dev-server以及相关的loaders"><a href="#安装webpack，webpack-dev-server以及相关的loaders" class="headerlink" title="安装webpack，webpack-dev-server以及相关的loaders"></a>安装webpack，webpack-dev-server以及相关的loaders</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm install -g webpack</div><div class="line">$ npm install -g webpack-dev-server</div><div class="line"><span class="comment"># 为项目安装其他依赖</span></div><div class="line">$ npm i webpack-merge css-loader style-loader file-loader url-loader babel-core babel-loader babel-plugin-transform-runtime babel-preset-es2015 babel-preset-stage-0 babel-runtime vue vue-loader vue-html-loader vue-style-loader vue-hot-reload-api -D</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> <em>vue是2.0.8版本 el属性不能为标签</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># package.json 文件</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"vue-simple-demo"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">    <span class="string">"babel-core"</span>: <span class="string">"^6.18.2"</span>,</div><div class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^6.2.8"</span>,</div><div class="line">    <span class="string">"babel-plugin-transform-runtime"</span>: <span class="string">"^6.15.0"</span>,</div><div class="line">    <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.18.0"</span>,</div><div class="line">    <span class="string">"babel-preset-stage-0"</span>: <span class="string">"^6.16.0"</span>,</div><div class="line">    <span class="string">"babel-runtime"</span>: <span class="string">"^6.18.0"</span>,</div><div class="line">    <span class="string">"css-loader"</span>: <span class="string">"^0.26.0"</span>,</div><div class="line">    <span class="string">"file-loader"</span>: <span class="string">"^0.9.0"</span>,</div><div class="line">    <span class="string">"style-loader"</span>: <span class="string">"^0.13.1"</span>,</div><div class="line">    <span class="string">"url-loader"</span>: <span class="string">"^0.5.7"</span>,</div><div class="line">    <span class="string">"vue"</span>: <span class="string">"^2.0.8"</span>,</div><div class="line">    <span class="string">"vue-hot-reload-api"</span>: <span class="string">"^2.0.6"</span>,</div><div class="line">    <span class="string">"vue-html-loader"</span>: <span class="string">"^1.2.3"</span>,</div><div class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^10.0.0"</span>,</div><div class="line">    <span class="string">"vue-style-loader"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="string">"vue-template-compiler"</span>: <span class="string">"^2.0.8"</span>,</div><div class="line">    <span class="string">"webpack"</span>: <span class="string">"^1.13.3"</span>,</div><div class="line">    <span class="string">"webpack-merge"</span>: <span class="string">"^0.17.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="相关的loaders说明"><a href="#相关的loaders说明" class="headerlink" title="相关的loaders说明"></a>相关的loaders说明</h6><ul>
+<li>webpack-merge：开发环境和生产环节的webpaak配置文件的配置合并</li>
+<li>file-loader：编译写入文件，默认情况下生成文件的文件名是文件名与MD5哈希值的组合</li>
+<li>vue-laoder：编译写入.vue文件</li>
+<li>vue-html-loader：编译vue的template部分</li>
+<li>vue-style-loader：编译vue的样式部分</li>
+<li>vue-hot-reload-api：webpack对vue实现热替换</li>
+<li>babel-core：ES2015编译核心</li>
+<li>babel-loader：编译写入ES2015文档</li>
+<li>babel-preset-es2015：ES2015语法</li>
+<li>babel-preset-stage-0：开启测试功能</li>
+<li>babel-runtime：babel执行环境</li>
+</ul>
+<h5 id="配置webpack-config-js"><a href="#配置webpack-config-js" class="headerlink" title="配置webpack.config.js"></a>配置webpack.config.js</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var path = require(<span class="string">'path'</span>);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">    entry: <span class="string">'./src/main.js'</span>,</div><div class="line">    output: &#123;</div><div class="line">        path: <span class="string">'./dist'</span>,</div><div class="line">        publicPath: <span class="string">'dist/'</span>,</div><div class="line">        filename: <span class="string">'bundle.js'</span></div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loaders: [</div><div class="line">            &#123;<span class="built_in">test</span>: /\.js$/,loader: <span class="string">'babel'</span>,exclude: /node_modules/&#125;,</div><div class="line">            //图片转换，小于8K自动转化为base64的编码</div><div class="line">            &#123;<span class="built_in">test</span>: /\.(png|jpg|gif)$/,loader: <span class="string">'url-loader?limit=8192'</span>&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    //这里用于安装babel，如果在更目录下的.babelrc配置了，这里可以不写</div><div class="line">    babel: &#123;</div><div class="line">        presets: [<span class="string">'es2015'</span>,<span class="string">'stage-0'</span>],</div><div class="line">        plugins: [<span class="string">'transform-runtime'</span>]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h6><p>如果要在.babelrc下配置babel，则需要在根目录下新建该文件，windows环境下，不能新建该txt文件然后改后缀，需要通过dos命令建立：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span>&gt;.babelrc</div></pre></td></tr></table></figure>
+<p>通过该命令就可以建立babelde配置文件，用编辑器打开，修改里面的内容为：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "presets": ["es2015", "stage-<span class="number">0</span>"],</div><div class="line">  "plugins": ["transform-runtime"]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ webpack</div></pre></td></tr></table></figure>
+<h6 id="使用webpack-dev-server"><a href="#使用webpack-dev-server" class="headerlink" title="使用webpack-dev-server"></a>使用webpack-dev-server</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 修改index.html文件，目的是当修改js文件时webpack-dev-server服务能够监听并刷新页面</span></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Vue Demo!!&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">'http://localhost:1314/dist/app.bundle.js'</span>&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行以下命令 访问 http://localhost:1314/webpack-dev-server/</span></div><div class="line">$ webpack</div><div class="line">$ webpack-dev-server --progress --color --port 1314</div><div class="line"><span class="comment"># 修改js文件保存之后，可以发现页面自动更新修改内容</span></div></pre></td></tr></table></figure>
+<h4 id="学习心得"><a href="#学习心得" class="headerlink" title="学习心得"></a>学习心得</h4><ul>
+<li><a href="https://github.com/yuanyuanshen/vue-simple-demo" target="_blank" rel="external">vue-simple-demo 代码地址</a></li>
+<li><a href="https://github.com/yuanyuanshen/vue-componets-demo" target="_blank" rel="external">vue-componets-demo 代码地址</a></li>
+<li>搜了很多关于vue.js的入门介绍，参考资料部分都是笔者觉得容易理解和上手的一些文章，共同努力~~</li>
+</ul>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="http://mrzhang123.github.io/2016/05/31/webpack-vue-2/" target="_blank" rel="external">webpack+vue起步</a></li>
+<li><a href="https://segmentfault.com/a/1190000005742111" target="_blank" rel="external">webpack中loader介绍</a></li>
+<li><a href="https://segmentfault.com/a/1190000004060034" target="_blank" rel="external">vue组件化开发初体验</a></li>
+<li><a href="http://www.jianshu.com/p/ebfeb687eb70" target="_blank" rel="external">ES6核心内容</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/webpack学习笔记/" rel="next" title="webpack学习笔记">
+                <i class="fa fa-chevron-left"></i> webpack学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/24/vue-webpack组件开发/" rel="prev" title="vue+webpack组件开发">
+                vue+webpack组件开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/22/vue学习笔记/"
+           data-title="vue学习笔记" data-url="http://yoursite.com/2016/11/22/vue学习笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png"
+               alt="YuanYuan Shen" />
+          <p class="site-author-name" itemprop="name">YuanYuan Shen</p>
+          <p class="site-description motion-element" itemprop="description">圈圈的学习园地</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yuanyuanshen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2716069255/home?wvr=5#_loginLayer_1479977110034" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yyshen_11" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2716069255" target="_blank" title="博客">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目创建结构"><span class="nav-number">1.</span> <span class="nav-text">项目创建结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#项目目录"><span class="nav-number">1.1.</span> <span class="nav-text">项目目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#项目文件"><span class="nav-number">1.2.</span> <span class="nav-text">项目文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#项目目录下新建package-json"><span class="nav-number">1.2.1.</span> <span class="nav-text">项目目录下新建package.json</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#src目录下新建index-html"><span class="nav-number">1.2.2.</span> <span class="nav-text">src目录下新建index.html</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#sec目录下新建main-js"><span class="nav-number">1.2.3.</span> <span class="nav-text">sec目录下新建main.js</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装依赖文件"><span class="nav-number">1.3.</span> <span class="nav-text">安装依赖文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#安装webpack，webpack-dev-server以及相关的loaders"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装webpack，webpack-dev-server以及相关的loaders</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#相关的loaders说明"><span class="nav-number">1.3.2.</span> <span class="nav-text">相关的loaders说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置webpack-config-js"><span class="nav-number">1.4.</span> <span class="nav-text">配置webpack.config.js</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#特别说明"><span class="nav-number">1.4.1.</span> <span class="nav-text">特别说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行项目"><span class="nav-number">1.5.</span> <span class="nav-text">运行项目</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用webpack-dev-server"><span class="nav-number">1.5.1.</span> <span class="nav-text">使用webpack-dev-server</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习心得"><span class="nav-number">2.</span> <span class="nav-text">学习心得</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanYuan Shen</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuanyuanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("606F9ujGSuRPnWiygqxbw7J6-gzGzoHsz", "DnRKbtHwF3uJxjTO8bf2DcVi");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

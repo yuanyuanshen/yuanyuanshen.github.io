@@ -1,0 +1,901 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6,ES2015," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="ES6常用语法学习总结每学一个知识点，都应该把重点总结出来，按照提纲对知识点，看看那个点还有问题进行二次学习。最近在看ES6，每看一部分总结一点，回头再看哪里没有掌握。分享给大家~
+let和const命令let命令不存在变量提升1234console.log(ss); //undefinedconsole.log(xx); //报错var ss = &apos;a&apos;;let xx = &apos;b&apos;;
+var存在变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6常用语法学习">
+<meta property="og:url" content="http://yoursite.com/2016/12/02/ES6常用语法学习/index.html">
+<meta property="og:site_name" content="掰玉米基地">
+<meta property="og:description" content="ES6常用语法学习总结每学一个知识点，都应该把重点总结出来，按照提纲对知识点，看看那个点还有问题进行二次学习。最近在看ES6，每看一部分总结一点，回头再看哪里没有掌握。分享给大家~
+let和const命令let命令不存在变量提升1234console.log(ss); //undefinedconsole.log(xx); //报错var ss = &apos;a&apos;;let xx = &apos;b&apos;;
+var存在变">
+<meta property="og:updated_time" content="2016-12-07T05:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6常用语法学习">
+<meta name="twitter:description" content="ES6常用语法学习总结每学一个知识点，都应该把重点总结出来，按照提纲对知识点，看看那个点还有问题进行二次学习。最近在看ES6，每看一部分总结一点，回头再看哪里没有掌握。分享给大家~
+let和const命令let命令不存在变量提升1234console.log(ss); //undefinedconsole.log(xx); //报错var ss = &apos;a&apos;;let xx = &apos;b&apos;;
+var存在变">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/02/ES6常用语法学习/"/>
+
+
+
+
+
+  <title> ES6常用语法学习 | 掰玉米基地 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?953f437cb245de3999f11074aef9fc46";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">掰玉米基地</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">和我一起掰玉米~啦啦啦</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/02/ES6常用语法学习/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YuanYuan Shen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="掰玉米基地">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="掰玉米基地" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6常用语法学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T11:27:40+08:00">
+                2016-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6学习篇/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6学习篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/02/ES6常用语法学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/ES6常用语法学习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/02/ES6常用语法学习/" class="leancloud_visitors" data-flag-title="ES6常用语法学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ES6常用语法学习总结"><a href="#ES6常用语法学习总结" class="headerlink" title="ES6常用语法学习总结"></a>ES6常用语法学习总结</h2><p>每学一个知识点，都应该把重点总结出来，按照提纲对知识点，看看那个点还有问题<br>进行二次学习。最近在看ES6，每看一部分总结一点，回头再看哪里没有掌握。分享给大家~</p>
+<h3 id="let和const命令"><a href="#let和const命令" class="headerlink" title="let和const命令"></a>let和const命令</h3><h5 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h5><h6 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(ss); //undefined</div><div class="line">console.log(xx); //报错</div><div class="line">var ss = <span class="string">'a'</span>;</div><div class="line"><span class="built_in">let</span> xx = <span class="string">'b'</span>;</div></pre></td></tr></table></figure>
+<p>var存在变量提提升，实际执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var ss;</div><div class="line">console.log(ss); //undefined</div><div class="line">console.log(xx); //报错</div><div class="line">ss = <span class="string">'a'</span>;</div><div class="line"><span class="built_in">let</span> xx = <span class="string">'b'</span>;</div></pre></td></tr></table></figure>
+<h6 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h6><p>ES6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。<br>凡是在声明之前就使用这些变量，就会报错。</p>
+<h6 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h6><p>let不允许在相同作用域内，重复声明同一个变量。无论是使用var 或者 let</p>
+<h6 id="块级作用域与函数声明"><a href="#块级作用域与函数声明" class="headerlink" title="块级作用域与函数声明"></a>块级作用域与函数声明</h6><p>ES6引入了块级作用域，明确允许在块级作用域之中声明函数。<br>并且ES6规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用。</p>
+<a id="more"></a>
+<h5 id="const命令"><a href="#const命令" class="headerlink" title="const命令"></a>const命令</h5><p>依然存在以下属性</p>
+<ul>
+<li>暂时性死区</li>
+<li>不存在变量提升</li>
+<li>块级作用域</li>
+<li>不允许重复声明</li>
+</ul>
+<p>新属性</p>
+<ul>
+<li>后续不能进行赋值操作</li>
+<li>一旦声明变量，就必须立即初始化</li>
+</ul>
+<h5 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h5><p>ES6为了改变这一点，一方面规定，为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。也就是说，从ES6开始，全局变量将逐步与顶层对象的属性脱钩。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">// 如果在Node的REPL环境，可以写成global.a</div><div class="line">// 或者采用通用方法，写成this.a</div><div class="line">window.a // 1</div><div class="line"><span class="built_in">let</span> b = 1;</div><div class="line">window.b // undefined</div></pre></td></tr></table></figure>
+<h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。<br>（个人理解就是对象、字符串、数组的取值和赋值），有需要看参考资料</p>
+<h3 id="class-extends和super"><a href="#class-extends和super" class="headerlink" title="class, extends和super"></a>class, extends和super</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Animal &#123;</div><div class="line">    <span class="function"><span class="title">constructor</span></span>()&#123;</div><div class="line">        this.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        console.log(this.type + <span class="string">' says '</span> + say)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">let</span> animal = new Animal()</div><div class="line">animal.says(<span class="string">'hello'</span>) //animal says hello</div><div class="line"></div><div class="line">class Cat extends Animal &#123;</div><div class="line">    <span class="function"><span class="title">constructor</span></span>()&#123;</div><div class="line">        super()</div><div class="line">        this.type = <span class="string">'cat'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">let</span> cat = new Cat()</div><div class="line">cat.says(<span class="string">'hello'</span>) //cat says hello</div></pre></td></tr></table></figure>
+<p>代码解读：</p>
+<ul>
+<li>class定义了一个“类”，构造（constructor）方法。</li>
+<li>this关键字则代表实例对象。constructor内定义的方法和属性是实例对象自己的，而constructor外定义的方法和属性则是所有实例对象可以共享的。</li>
+<li>Class之间通过extends关键字实现继承</li>
+<li>super关键字，它指代父类的实例（即父类的this对象）。子类必须在constructor方法中调用super方法，否则新建实例时会报错。</li>
+<li>子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</li>
+</ul>
+<p>ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
+<h3 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span>(x, y) &#123;</div><div class="line">    x++;</div><div class="line">    y--;</div><div class="line">    <span class="built_in">return</span> x + y;</div><div class="line">&#125;</div><div class="line">(x, y) =&gt; &#123;x++; y--; <span class="built_in">return</span> x+y&#125;</div></pre></td></tr></table></figure>
+<p><strong>ES5与ES6对比</strong></p>
+<p>ES5： function name(参数)    {运算表达式;return 表达式}</p>
+<p>ES6：              (参数) =&gt; {运算表达式;return 表达式}</p>
+<p><strong>箭头函数解决this指向问题</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Animal &#123;</div><div class="line">    <span class="function"><span class="title">constructor</span></span>()&#123;</div><div class="line">        this.type = <span class="string">'animal'</span></div><div class="line">    &#125;</div><div class="line">    says(say)&#123;</div><div class="line">        <span class="built_in">set</span>Timeout( () =&gt; &#123;</div><div class="line">            console.log(this.type + <span class="string">' says '</span> + say)</div><div class="line">        &#125;, 1000)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> var animal = new Animal()</div><div class="line"> animal.says(<span class="string">'hi'</span>)  //animal says hi</div></pre></td></tr></table></figure>
+<p>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
+<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>这个东西也是非常有用，当我们要插入大段的html内容到文档中时，传统的写法非常麻烦，所以之前我们通常会引用一些模板工具库，比如mustache等等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ES5</span></div><div class="line">$(<span class="string">"#result"</span>).append(</div><div class="line">  <span class="string">"There are &lt;b&gt;"</span> + basket.count + <span class="string">"&lt;/b&gt; "</span> +</div><div class="line">  <span class="string">"items in your basket, "</span> +</div><div class="line">  <span class="string">"&lt;em&gt;"</span> + basket.onSale +</div><div class="line">  <span class="string">"&lt;/em&gt; are on sale!"</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>我们要用一堆的’+’号来连接文本与变量，而使用ES6的新特性模板字符串``后，我们可以直接这么来写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ES6</span></div><div class="line">$(<span class="string">"#result"</span>).append(`</div><div class="line">  There are &lt;b&gt;<span class="variable">$&#123;basket.count&#125;</span>&lt;/b&gt; items</div><div class="line">   <span class="keyword">in</span> your basket, &lt;em&gt;<span class="variable">$&#123;basket.onSale&#125;</span>&lt;/em&gt;</div><div class="line">  are on sale!</div><div class="line">`);</div></pre></td></tr></table></figure>
+<p>用反引号（\）来标识起始，用${}`来引用变量，而且所有的空格和缩进都会被保留在输出之中.</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript6入门</a></li>
+<li><a href="http://babeljs.io/repl/#?babili=false&amp;evaluate=true&amp;lineWrap=false&amp;presets=latest%2Creact%2Cstage-2&amp;experimental=false&amp;loose=false&amp;spec=false&amp;code=%5B1%2C2%2C3%5D.map(n%20%3D%3E%20n%20%2B%201" target="_blank" rel="external">ES6在线编辑器</a>%3B&amp;playground=true)</li>
+<li><a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="external">ES6核心语法</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+            <a href="/tags/ES2015/" rel="tag"># ES2015</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/24/vue-webpack组件开发/" rel="next" title="vue+webpack组件开发">
+                <i class="fa fa-chevron-left"></i> vue+webpack组件开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/07/stylus常用语法总结/" rel="prev" title="stylus常用语法总结">
+                stylus常用语法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/02/ES6常用语法学习/"
+           data-title="ES6常用语法学习" data-url="http://yoursite.com/2016/12/02/ES6常用语法学习/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://pic.58pic.com/58pic/15/47/14/88X58PICrxW_1024.png"
+               alt="YuanYuan Shen" />
+          <p class="site-author-name" itemprop="name">YuanYuan Shen</p>
+          <p class="site-description motion-element" itemprop="description">圈圈的学习园地</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yuanyuanshen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2716069255/home?wvr=5#_loginLayer_1479977110034" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/yyshen_11" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/2716069255" target="_blank" title="博客">
+                  
+                    <i class="fa fa-fw fa-child"></i>
+                  
+                  博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6常用语法学习总结"><span class="nav-number">1.</span> <span class="nav-text">ES6常用语法学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#let和const命令"><span class="nav-number">1.1.</span> <span class="nav-text">let和const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#let命令"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#暂时性死区"><span class="nav-number">1.1.0.1.2.</span> <span class="nav-text">暂时性死区</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#不允许重复声明"><span class="nav-number">1.1.0.1.3.</span> <span class="nav-text">不允许重复声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#块级作用域与函数声明"><span class="nav-number">1.1.0.1.4.</span> <span class="nav-text">块级作用域与函数声明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const命令"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">const命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顶层对象的属性"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">顶层对象的属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的解构赋值"><span class="nav-number">1.2.</span> <span class="nav-text">变量的解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-extends和super"><span class="nav-number">1.3.</span> <span class="nav-text">class, extends和super</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arrow-function"><span class="nav-number">1.4.</span> <span class="nav-text">arrow function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-string"><span class="nav-number">1.5.</span> <span class="nav-text">template string</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YuanYuan Shen</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yuanyuanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("606F9ujGSuRPnWiygqxbw7J6-gzGzoHsz", "DnRKbtHwF3uJxjTO8bf2DcVi");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
